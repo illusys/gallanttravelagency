@@ -1,21 +1,138 @@
 @config "../../tailwind.config.js";
 @import "tailwindcss";
 
-@layer base {
-  body { font-family: 'Source Sans 3', sans-serif;
-  background-color: #FAFAF9;
-  color: #1C1917; }
-  h1,
-h2,
-h3,
-h4,
-h5,
-h6 { font-family: 'Bebas Neue', sans-serif;
-  letter-spacing: 0.05em; }
+@theme {
+  --color-primary: #252062;
+  --color-secondary: #08a957;
+  --color-cta: #f47b13;
+  --color-background: #fffaf3;
+  --color-surface: #ffffff;
+  --color-border: #eadfce;
+  --color-muted: #5f6272;
+  --color-text: #17173a;
+  --font-heading: "Bebas Neue", "Arial Black", "Impact", sans-serif;
 }
 
+
+@layer base {
+  body {
+    font-family: 'Source Sans 3', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background:
+      radial-gradient(circle at top left, rgba(244, 123, 19, 0.14), transparent 34rem),
+      radial-gradient(circle at top right, rgba(8, 169, 87, 0.12), transparent 30rem),
+      #fffaf3;
+    color: #17173a;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Bebas Neue", "Arial Black", "Impact", sans-serif;
+    letter-spacing: 0.05em;
+  }
+}
+
+@layer components {
+  nav {
+    box-shadow: 0 18px 50px rgba(37, 32, 98, 0.12);
+  }
+
+  nav a:first-child,
+  footer a:first-child {
+    position: relative;
+    isolation: isolate;
+  }
+
+  nav a:first-child svg,
+  footer a:first-child svg {
+    color: #08a957;
+    filter: drop-shadow(0 3px 0 rgba(37, 32, 98, 0.15));
+  }
+
+  nav a:first-child span,
+  footer a:first-child span {
+    color: #252062;
+    text-shadow: 2px 2px 0 #ffffff, 4px 4px 0 rgba(244, 123, 19, 0.18);
+  }
+
+  footer a:first-child span {
+    color: #ffffff;
+    text-shadow: 3px 3px 0 rgba(244, 123, 19, 0.55);
+  }
+
+  section[id] {
+    position: relative;
+  }
+
+  #hero {
+    background-image:
+      linear-gradient(115deg, rgba(37, 32, 98, 0.88), rgba(37, 32, 98, 0.55) 46%, rgba(8, 169, 87, 0.34)),
+      url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2200&auto=format&fit=crop');
+  }
+
+  #hero::after {
+    content: "";
+    position: absolute;
+    inset: auto -10% -8rem -10%;
+    height: 14rem;
+    background: #fffaf3;
+    transform: rotate(-2deg);
+    transform-origin: center;
+  }
+
+  #hero .text-cta {
+    color: #f47b13;
+    text-shadow: 3px 3px 0 #252062, 5px 5px 0 rgba(255, 255, 255, 0.25);
+  }
+
+  #why_travel_with_us,
+  #adventure_styles,
+  #mission,
+  #featured_destinations,
+  #latest_stories,
+  #contact_form,
+  #package_grid,
+  #destination_grid {
+    background-color: #fffaf3;
+  }
+
+  #ready_to_start_your_adventure,
+  section.bg-primary {
+    background:
+      linear-gradient(135deg, #252062 0%, #252062 54%, #08a957 100%);
+  }
+
+  footer {
+    background:
+      linear-gradient(135deg, #17173a 0%, #252062 62%, #0b6d48 100%) !important;
+  }
+
+  .bg-white,
+  .card-hover {
+    box-shadow: 0 22px 60px rgba(37, 32, 98, 0.10);
+  }
+}
+
+
 @layer utilities {
-  .text-shadow { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }
-  .card-hover { transform: translateY(-5px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); }
+  .text-shadow { text-shadow: 2px 2px 4px rgba(23, 23, 58, 0.45); }
+
+  .card-hover {
+    transform: translateY(0);
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-8px);
+    border-color: rgba(244, 123, 19, 0.45);
+    box-shadow: 0 24px 45px -18px rgba(37, 32, 98, 0.35), 0 12px 24px -16px rgba(244, 123, 19, 0.45);
+  }
+
+  .bg-hero-pattern {
+    background-image:
+      linear-gradient(115deg, rgba(37, 32, 98, 0.88), rgba(37, 32, 98, 0.55) 46%, rgba(8, 169, 87, 0.34)),
+      url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2200&auto=format&fit=crop');
+  }
 }

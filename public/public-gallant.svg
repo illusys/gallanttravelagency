@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 170" role="img" aria-labelledby="title desc">
+  <title id="title">Gallant Travel Agency</title>
+  <desc id="desc">Gallant Travel Agency brand logo with orange Gallant lettering, navy Travel Agency lettering, a green divider, and green airplane mark.</desc>
+  <defs>
+    <filter id="shadow" x="-15%" y="-25%" width="135%" height="160%">
+      <feDropShadow dx="5" dy="5" stdDeviation="3" flood-color="#17173a" flood-opacity="0.28"/>
+    </filter>
+    <filter id="soft" x="-10%" y="-20%" width="120%" height="150%">
+      <feDropShadow dx="2" dy="3" stdDeviation="2" flood-color="#000000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <text x="14" y="82"
+      font-family="Georgia, 'Times New Roman', serif"
+      font-size="76"
+      font-weight="900"
+      letter-spacing="2"
+      fill="#f47b13"
+      stroke="#ffffff"
+      stroke-width="8"
+      paint-order="stroke fill">GALLANT</text>
+
+    <rect x="24" y="90" width="418" height="11" rx="5.5" fill="#08a957" stroke="#ffffff" stroke-width="5"/>
+
+    <text x="20" y="140"
+      font-family="Georgia, 'Times New Roman', serif"
+      font-size="47"
+      font-weight="900"
+      letter-spacing="1.5"
+      fill="#252062"
+      stroke="#ffffff"
+      stroke-width="7"
+      paint-order="stroke fill">TRAVEL AGENCY</text>
+  </g>
+
+  <g transform="translate(455 40) rotate(8)" filter="url(#soft)">
+    <path d="M16 48 L2 39 C-1 37 -1 32 3 31 L74 43 L111 8 C119 1 132 -1 137 3 C141 8 138 20 129 27 L91 58 L105 128 C106 132 102 135 98 133 L88 119 L66 76 L37 98 L37 121 L27 126 L16 96 L-12 82 L-3 73 L20 77 L45 51 Z"
+      fill="#08a957"
+      stroke="#ffffff"
+      stroke-width="10"
+      stroke-linejoin="round"/>
+    <path d="M16 48 L2 39 C-1 37 -1 32 3 31 L74 43 L111 8 C119 1 132 -1 137 3 C141 8 138 20 129 27 L91 58 L105 128 C106 132 102 135 98 133 L88 119 L66 76 L37 98 L37 121 L27 126 L16 96 L-12 82 L-3 73 L20 77 L45 51 Z"
+      fill="#08a957"
+      stroke="#08a957"
+      stroke-width="2"
+      stroke-linejoin="round"/>
+  </g>
+</svg>

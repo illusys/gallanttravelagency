@@ -1,7 +1,6 @@
 import { Button } from '@/components/Button';
-import { Compass } from 'lucide-react';
 import { Facebook } from 'lucide-react';
-import { Input } from '@/components/Input';
+import { Image } from '@/components/Image';
 import { Instagram } from 'lucide-react';
 import { Link } from '@/components/Link';
 import { Mail } from 'lucide-react';
@@ -11,11 +10,10 @@ import { Phone } from 'lucide-react';
 import { Text } from '@/components/Text';
 import { Twitter } from 'lucide-react';
 import { X } from 'lucide-react';
-import { Youtube } from 'lucide-react';
 
 export const metadata = {
-  title: 'Travel Agency 2 - Free Tailwind Template',
-  description:  'Download this free Tailwind CSS Travel website template for Travel Agency 2. Features a wanderlust design, fully responsive layout, and includes 6 pre-built pages like blog.html, index.html, about.html.',
+  title: 'Contact Us | Gallant Travel Agency',
+  description: 'Get in touch with Gallant Travel Agency. Book flights, hotels, visa assistance, and more. Visit us at Alaba International Market, Lagos or reach us by phone, email, or social media.',
 };
 
 export default function Page() {
@@ -26,207 +24,380 @@ export default function Page() {
           <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
               <div className="flex justify-between items-center h-20">
-                <Link className="flex items-center gap-2 group" href="index.html"><Compass className="w-8 h-8 text-primary" />
-                <Text className="font-heading text-3xl text-primary tracking-wide"> WANDERLUST </Text></Link>
+                <Link className="flex items-center gap-2 group" href="index.html">
+                  <Image className="h-14 w-auto object-contain" src="/gallant_travel_agency_logo.png" alt="Gallant Travel Agency" width={230} height={59} />
+                </Link>
                 <div className="hidden md:flex items-center gap-8">
                   <Link className="text-base font-medium text-text hover:text-primary transition-colors" href="index.html"> Home </Link>
                   <Link className="text-base font-medium text-text hover:text-primary transition-colors" href="about.html"> About </Link>
                   <Link className="text-base font-medium text-text hover:text-primary transition-colors" href="destinations.html"> Destinations </Link>
-                  <Link className="text-base font-medium text-text hover:text-primary transition-colors" href="services.html"> Packages </Link>
-                  <Link className="text-base font-medium text-text hover:text-primary transition-colors" href="blog.html"> Journal </Link>
-                  <Link contentKey="cta_16" className="bg-cta hover:bg-orange-700 text-white px-6 py-2 rounded-full font-bold transition-all shadow-lg hover:shadow-orange-500/30" href="contact.html"> Book Trip </Link>
+                  <Link className="text-base font-medium text-text hover:text-primary transition-colors" href="services.html"> Services </Link>
+                  <Link className="text-base font-medium text-primary transition-colors" href="contact.html"> Contact </Link>
+                  <Link className="bg-cta hover:bg-orange-700 text-white px-6 py-2 rounded-full font-bold transition-all shadow-lg hover:shadow-orange-500/30" href="contact.html"> Plan a Trip </Link>
                 </div>
-                <Button variant="primary" className="md:hidden text-text hover:text-primary" id="mobileMenuBtn"><Menu className="w-8 h-8" /></Button>
+                <Button variant="primary" className="md:hidden text-text hover:text-primary" id="mobileMenuBtn">
+                  <Menu className="w-8 h-8" />
+                </Button>
               </div>
             </div>
           </nav>
         </header>
-        {/* Navigation */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="flex justify-between items-center h-20">
-              <Link className="flex items-center gap-2 group" href="index.html"><Compass className="w-8 h-8 text-primary" />
-              <Text className="font-heading text-3xl text-primary tracking-wide"> WANDERLUST </Text></Link>
-              <div className="hidden md:flex items-center gap-8">
-                <Link className="text-base font-medium text-text hover:text-primary transition-colors" href="index.html"> Home </Link>
-                <Link className="text-base font-medium text-text hover:text-primary transition-colors" href="about.html"> About </Link>
-                <Link className="text-base font-medium text-text hover:text-primary transition-colors" href="destinations.html"> Destinations </Link>
-                <Link className="text-base font-medium text-text hover:text-primary transition-colors" href="services.html"> Packages </Link>
-                <Link className="text-base font-medium text-text hover:text-primary transition-colors" href="blog.html"> Journal </Link>
-                <Link contentKey="cta_17" className="bg-cta hover:bg-orange-700 text-white px-6 py-2 rounded-full font-bold transition-all shadow-lg hover:shadow-orange-500/30" href="contact.html"> Book Trip </Link>
-              </div>
-              <Button variant="primary" className="md:hidden text-text hover:text-primary" id="mobileMenuBtn"><Menu className="w-8 h-8" /></Button>
-            </div>
-          </div>
-        </nav>
+
         {/* Mobile Menu Overlay */}
         <div id="mobileMenu" className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl hidden flex-col items-center justify-center gap-8 transition-all duration-300">
-          <Button variant="primary" className="absolute top-6 right-6 text-text hover:text-primary" id="closeMenuBtn"><X className="w-8 h-8" /></Button>
+          <Button variant="primary" className="absolute top-6 right-6 text-text hover:text-primary" id="closeMenuBtn">
+            <X className="w-8 h-8" />
+          </Button>
           <Link className="text-4xl font-heading text-text hover:text-primary" href="index.html"> Home </Link>
           <Link className="text-4xl font-heading text-text hover:text-primary" href="about.html"> About </Link>
           <Link className="text-4xl font-heading text-text hover:text-primary" href="destinations.html"> Destinations </Link>
-          <Link className="text-4xl font-heading text-text hover:text-primary" href="services.html"> Packages </Link>
-          <Link className="text-4xl font-heading text-text hover:text-primary" href="blog.html"> Journal </Link>
-          <Link className="text-4xl font-heading text-cta hover:text-orange-700" href="contact.html"> Book Trip </Link>
+          <Link className="text-4xl font-heading text-text hover:text-primary" href="services.html"> Services </Link>
+          <Link className="text-4xl font-heading text-primary" href="contact.html"> Contact </Link>
+          <Link className="text-4xl font-heading text-cta hover:text-orange-700" href="contact.html"> Plan a Trip </Link>
         </div>
-        {/* Start Your Journey */}
-        <section id="start_your_journey" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-primary overflow-hidden">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
+
+        {/* Page Hero */}
+        <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-primary overflow-hidden">
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1488085061387-422e29b40080?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
           <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
-            <h1 className="text-6xl lg:text-8xl font-heading text-white mb-6"> Start Your Journey </h1>
+            <h1 className="text-6xl lg:text-8xl font-heading text-white mb-6"> Contact Us </h1>
             <p className="text-xl text-white/90 max-w-2xl mx-auto">
-               Have questions or ready to book? Our team is here to help you plan the perfect adventure. 
+              We're here to help you plan your next journey. Reach out via phone, email, or social media — or come see us in person.
             </p>
           </div>
         </section>
-        {/* Get In Touch */}
-        <section id="get_in_touch" className="py-24 bg-background">
+
+        {/* Contact Details + Form */}
+        <section className="py-24 bg-background">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16">
-              {/* Contact Info */}
+
+              {/* Left — Contact Info */}
               <div>
-                <h2 className="text-5xl font-heading text-primary mb-8"> Get In Touch </h2>
-                <p className="text-lg text-muted mb-12">
-                   We'd love to hear from you. Whether you're looking for a custom itinerary or just want to say hello, drop us a line. 
+                <Text variant="bold" className="text-cta font-bold tracking-wider text-sm uppercase mb-2 block"> Get In Touch </Text>
+                <h2 className="text-5xl font-heading text-primary mb-6"> We'd Love to Hear From You </h2>
+                <p className="text-lg text-muted mb-10">
+                  Whether you need help booking a flight, processing a visa, or planning a full itinerary — our team is ready to assist. Contact us through any of the channels below.
                 </p>
-                <div className="space-y-8">
-                  <div className="flex items-start gap-6">
-                    <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0 text-primary"><MapPin className="w-6 h-6" /></div>
-                    <div>
-                      <h3 className="text-xl font-heading text-text mb-1"> Visit Us </h3>
-                      <p className="text-muted">
-                         123 Adventure Way, Suite 101 
-                        <br />
-                         Boulder, CO 80302 
-                      </p>
+
+                <ul className="space-y-8">
+                  {/* Address */}
+                  <li className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-5 h-5 text-primary" />
                     </div>
-                  </div>
-                  <div className="flex items-start gap-6">
-                    <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0 text-primary"><Mail className="w-6 h-6" /></div>
                     <div>
-                      <h3 className="text-xl font-heading text-text mb-1"> Email Us </h3>
-                      <p className="text-muted">
-                         hello@wanderlust.com 
-                        <br />
-                         bookings@wanderlust.com 
-                      </p>
+                      <h4 className="font-heading text-xl text-text mb-1"> Our Office </h4>
+                      <a
+                        href="https://www.google.com/maps/search/?api=1&query=Union+Bank+Building,+Japan+Line,+Alaba+International+Market,+Alaba,+Lagos+102111,+Lagos,+Nigeria"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted hover:text-primary transition-colors"
+                      >
+                        Union Bank Building, Japan Line,<br />
+                        Alaba International Market, Alaba,<br />
+                        Lagos 102111, Lagos, Nigeria
+                      </a>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-6">
-                    <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0 text-primary"><Phone className="w-6 h-6" /></div>
+                  </li>
+
+                  {/* Phone */}
+                  <li className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-5 h-5 text-primary" />
+                    </div>
                     <div>
-                      <h3 className="text-xl font-heading text-text mb-1"> Call Us </h3>
-                      <p className="text-muted">
-                         +1 (555) 987-6543 
-                        <br />
-                         Mon-Fri, 9am-6pm MST 
-                      </p>
+                      <h4 className="font-heading text-xl text-text mb-1"> Phone </h4>
+                      <a
+                        href="tel:+2348064196301"
+                        className="text-muted hover:text-primary transition-colors"
+                      >
+                        0806 419 6301
+                      </a>
                     </div>
-                  </div>
-                </div>
-                {/* Socials */}
-                <div className="mt-12">
-                  <h3 className="text-xl font-heading text-text mb-4"> Follow Our Adventures </h3>
+                  </li>
+
+                  {/* Email */}
+                  <li className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Mail className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-heading text-xl text-text mb-1"> Email </h4>
+                      <a
+                        href="mailto:hello@gallanttravel.ng"
+                        className="text-muted hover:text-primary transition-colors"
+                      >
+                        hello@gallanttravel.ng
+                      </a>
+                    </div>
+                  </li>
+
+                  {/* WhatsApp */}
+                  <li className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-heading text-xl text-text mb-1"> WhatsApp </h4>
+                      <a
+                        href="https://wa.me/2348064196301"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted hover:text-primary transition-colors"
+                      >
+                        Chat with us on WhatsApp
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+
+                {/* Social Links */}
+                <div className="mt-10">
+                  <h4 className="font-heading text-xl text-text mb-4"> Follow Us </h4>
                   <div className="flex gap-4">
-                    <Link className="w-12 h-12 rounded-full bg-white border border-border flex items-center justify-center text-text hover:bg-primary hover:text-white hover:border-primary transition-all" href="#"><Instagram className="w-6 h-6" /></Link>
-                    <Link className="w-12 h-12 rounded-full bg-white border border-border flex items-center justify-center text-text hover:bg-primary hover:text-white hover:border-primary transition-all" href="#"><Facebook className="w-6 h-6" /></Link>
-                    <Link className="w-12 h-12 rounded-full bg-white border border-border flex items-center justify-center text-text hover:bg-primary hover:text-white hover:border-primary transition-all" href="#"><Twitter className="w-6 h-6" /></Link>
-                    <Link className="w-12 h-12 rounded-full bg-white border border-border flex items-center justify-center text-text hover:bg-primary hover:text-white hover:border-primary transition-all" href="#"><Youtube className="w-6 h-6" /></Link>
+                    <a
+                      href="https://www.instagram.com/gallanttravelagency2/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-cta hover:text-white text-primary transition-colors"
+                      aria-label="Instagram"
+                    >
+                      <Instagram className="w-5 h-5" />
+                    </a>
+                    <a
+                      href="https://web.facebook.com/gallanttravelagency"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-cta hover:text-white text-primary transition-colors"
+                      aria-label="Facebook"
+                    >
+                      <Facebook className="w-5 h-5" />
+                    </a>
+                    <a
+                      href="https://www.tiktok.com/@gallanttravelagency2"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-cta hover:text-white text-primary transition-colors"
+                      aria-label="TikTok"
+                    >
+                      {/* TikTok icon — not in lucide-react, using an inline SVG */}
+                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z" />
+                      </svg>
+                    </a>
                   </div>
                 </div>
               </div>
-              {/* Contact Form */}
-              <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-border">
+
+              {/* Right — Contact Form */}
+              <div className="bg-white rounded-2xl shadow-xl p-8 lg:p-10">
+                <h3 className="text-3xl font-heading text-primary mb-2"> Send Us a Message </h3>
+                <p className="text-muted mb-8"> Fill in the form and we'll get back to you within 24 hours. </p>
+
                 <form className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label htmlFor="firstName" className="text-sm font-bold text-text uppercase tracking-wider"> First Name </label>
-                      <Input className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:bg-white" type="text" placeholder="Jane" id="firstName" />
+                  <div className="grid sm:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-bold text-text mb-2" htmlFor="firstName"> First Name </label>
+                      <input
+                        id="firstName"
+                        type="text"
+                        placeholder="e.g. Amaka"
+                        className="w-full border border-border rounded-lg px-4 py-3 text-text placeholder-muted focus:outline-none focus:ring-2 focus:ring-primary/40 transition"
+                      />
                     </div>
-                    <div className="space-y-2">
-                      <label htmlFor="lastName" className="text-sm font-bold text-text uppercase tracking-wider"> Last Name </label>
-                      <Input className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:bg-white" type="text" placeholder="Doe" id="lastName" />
+                    <div>
+                      <label className="block text-sm font-bold text-text mb-2" htmlFor="lastName"> Last Name </label>
+                      <input
+                        id="lastName"
+                        type="text"
+                        placeholder="e.g. Okonkwo"
+                        className="w-full border border-border rounded-lg px-4 py-3 text-text placeholder-muted focus:outline-none focus:ring-2 focus:ring-primary/40 transition"
+                      />
                     </div>
                   </div>
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-bold text-text uppercase tracking-wider"> Email Address </label>
-                    <Input className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:bg-white" type="email" placeholder="jane@example.com" id="email" />
+
+                  <div>
+                    <label className="block text-sm font-bold text-text mb-2" htmlFor="email"> Email Address </label>
+                    <input
+                      id="email"
+                      type="email"
+                      placeholder="you@example.com"
+                      className="w-full border border-border rounded-lg px-4 py-3 text-text placeholder-muted focus:outline-none focus:ring-2 focus:ring-primary/40 transition"
+                    />
                   </div>
-                  <div className="space-y-2">
-                    <label htmlFor="interest" className="text-sm font-bold text-text uppercase tracking-wider"> Interested In </label>
-                    <select id="interest" className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:bg-white">
-                      <option> General Inquiry </option>
-                      <option> The Alpine Explorer </option>
-                      <option> Deep Blue Odyssey </option>
-                      <option> Silk Road Journey </option>
-                      <option> Custom Itinerary </option>
+
+                  <div>
+                    <label className="block text-sm font-bold text-text mb-2" htmlFor="phone"> Phone Number </label>
+                    <input
+                      id="phone"
+                      type="tel"
+                      placeholder="+234 800 000 0000"
+                      className="w-full border border-border rounded-lg px-4 py-3 text-text placeholder-muted focus:outline-none focus:ring-2 focus:ring-primary/40 transition"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-bold text-text mb-2" htmlFor="service"> Service Needed </label>
+                    <select
+                      id="service"
+                      className="w-full border border-border rounded-lg px-4 py-3 text-text focus:outline-none focus:ring-2 focus:ring-primary/40 transition bg-white"
+                    >
+                      <option value="" disabled selected> Select a service </option>
+                      <option value="flight"> Flight Booking </option>
+                      <option value="hotel"> Hotel Reservation </option>
+                      <option value="visa"> Visa Assistance </option>
+                      <option value="evisa"> E-Visa Application </option>
+                      <option value="group"> Group & Corporate Travel </option>
+                      <option value="package"> Full Service Package </option>
+                      <option value="other"> Other </option>
                     </select>
                   </div>
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-bold text-text uppercase tracking-wider"> Message </label>
-                    <textarea id="message" placeholder="Tell us about your dream trip..." rows={4} className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:bg-white"></textarea>
+
+                  <div>
+                    <label className="block text-sm font-bold text-text mb-2" htmlFor="message"> Your Message </label>
+                    <textarea
+                      id="message"
+                      rows={5}
+                      placeholder="Tell us about your trip — destination, travel dates, number of travellers..."
+                      className="w-full border border-border rounded-lg px-4 py-3 text-text placeholder-muted focus:outline-none focus:ring-2 focus:ring-primary/40 transition resize-none"
+                    />
                   </div>
-                  <button type="submit" className="w-full bg-cta hover:bg-orange-700 text-white font-bold py-4 rounded-xl transition-all shadow-lg hover:shadow-orange-500/30 text-lg"> Send Message </button>
+
+                  <button
+                    type="submit"
+                    className="w-full bg-cta hover:bg-orange-700 text-white font-bold py-4 rounded-full transition-all shadow-lg hover:shadow-orange-500/30 text-lg"
+                  >
+                    Send Message
+                  </button>
                 </form>
               </div>
+
             </div>
           </div>
         </section>
+
+        {/* Map Embed */}
+        <section className="bg-white">
+          <iframe
+            title="Gallant Travel Agency Location"
+            src="https://www.google.com/maps?q=Union+Bank+Building,+Japan+Line,+Alaba+International+Market,+Alaba,+Lagos+102111,+Lagos,+Nigeria&output=embed"
+            width="100%"
+            height="400"
+            style={{ border: 0, display: 'block' }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </section>
+
+        {/* CTA Banner */}
+        <section className="py-24 bg-primary relative overflow-hidden">
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+          <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
+            <h2 className="text-5xl md:text-6xl font-heading text-white mb-6"> Ready to Take Off? </h2>
+            <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+              From quick domestic bookings to full international packages — Gallant Travel is your reliable partner from enquiry to landing.
+            </p>
+            <a
+              href="https://wa.me/2348064196301"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-cta hover:bg-white hover:text-cta text-white text-xl px-10 py-4 rounded-full font-bold transition-all shadow-xl inline-flex items-center gap-2"
+            >
+              Chat on WhatsApp
+            </a>
+          </div>
+        </section>
+
         {/* Footer */}
         <footer className="bg-text text-white pt-20 pb-10">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid md:grid-cols-4 gap-12 mb-16">
               <div className="col-span-1 md:col-span-2">
-                <Link className="flex items-center gap-2 mb-6" href="index.html"><Compass className="w-8 h-8 text-secondary" />
-                <Text className="font-heading text-3xl text-white tracking-wide"> WANDERLUST </Text></Link>
+                <Link className="flex items-center gap-2 mb-6" href="index.html">
+                  <Image className="h-14 w-auto object-contain" src="/gallant_travel_agency_logo.png" alt="Gallant Travel Agency" width={230} height={59} />
+                </Link>
                 <p className="text-gray-400 max-w-sm mb-8">
-                   Inspiring the spirit of adventure since 2010. We believe in travel that transforms you and respects the planet. 
+                  Gallant Travel Agency helps clients plan smooth, memorable journeys with reliable guidance, responsive service, and carefully selected travel options.
                 </p>
                 <div className="flex gap-4">
-                  <Link className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-cta transition-colors" href="#"><Instagram className="w-5 h-5" /></Link>
-                  <Link className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-cta transition-colors" href="#"><Facebook className="w-5 h-5" /></Link>
-                  <Link className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-cta transition-colors" href="#"><Twitter className="w-5 h-5" /></Link>
+                  <a
+                    href="https://www.instagram.com/gallanttravelagency2/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-cta transition-colors"
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="https://web.facebook.com/gallanttravelagency"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-cta transition-colors"
+                    aria-label="Facebook"
+                  >
+                    <Facebook className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="https://www.tiktok.com/@gallanttravelagency2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-cta transition-colors"
+                    aria-label="TikTok"
+                  >
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z" />
+                    </svg>
+                  </a>
                 </div>
               </div>
+
               <div>
-                <h4 className="font-heading text-xl text-white mb-6"> Explore </h4>
+                <h4 className="font-heading text-xl text-white mb-6"> Company </h4>
                 <ul className="space-y-4">
-                  <li>
-                    <Link className="text-gray-400 hover:text-cta transition-colors" href="about.html"> About Us </Link>
-                  </li>
-                  <li>
-                    <Link className="text-gray-400 hover:text-cta transition-colors" href="destinations.html"> Destinations </Link>
-                  </li>
-                  <li>
-                    <Link className="text-gray-400 hover:text-cta transition-colors" href="services.html"> Packages </Link>
-                  </li>
-                  <li>
-                    <Link className="text-gray-400 hover:text-cta transition-colors" href="blog.html"> Journal </Link>
-                  </li>
+                  <li><Link className="text-gray-400 hover:text-cta transition-colors" href="about.html"> About Gallant </Link></li>
+                  <li><Link className="text-gray-400 hover:text-cta transition-colors" href="destinations.html"> Destinations </Link></li>
+                  <li><Link className="text-gray-400 hover:text-cta transition-colors" href="services.html"> Services </Link></li>
+                  <li><Link className="text-gray-400 hover:text-cta transition-colors" href="contact.html"> Contact </Link></li>
                 </ul>
               </div>
+
               <div>
                 <h4 className="font-heading text-xl text-white mb-6"> Contact </h4>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3 text-gray-400">
-                    <MapPin className="w-5 h-5 text-secondary mt-1" />
-                    <Text> 123 Adventure Way 
-                    <br />
-                     Boulder, CO 80302 </Text>
+                    <MapPin className="w-5 h-5 text-secondary mt-1 flex-shrink-0" />
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=Union+Bank+Building,+Japan+Line,+Alaba+International+Market,+Alaba,+Lagos+102111,+Lagos,+Nigeria"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-white transition-colors"
+                    >
+                      Union Bank Building, Japan Line,<br />
+                      Alaba International Market, Alaba,<br />
+                      Lagos 102111, Lagos, Nigeria
+                    </a>
                   </li>
                   <li className="flex items-center gap-3 text-gray-400">
-                    <Phone className="w-5 h-5 text-secondary" />
-                    <Text> +1 (555) 987-6543 </Text>
+                    <Phone className="w-5 h-5 text-secondary flex-shrink-0" />
+                    <a href="tel:+2348064196301" className="hover:text-white transition-colors">
+                      0806 419 6301
+                    </a>
                   </li>
                   <li className="flex items-center gap-3 text-gray-400">
-                    <Mail className="w-5 h-5 text-secondary" />
-                    <Text> hello@wanderlust.com </Text>
+                    <Mail className="w-5 h-5 text-secondary flex-shrink-0" />
+                    <a href="mailto:hello@gallanttravel.ng" className="hover:text-white transition-colors">
+                      hello@gallanttravel.ng
+                    </a>
                   </li>
                 </ul>
               </div>
             </div>
+
             <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-gray-500 text-sm"> © 2024 Wanderlust Expeditions. All rights reserved. </p>
+              <p className="text-gray-500 text-sm"> © 2026 Gallant Travel Agency. All rights reserved. </p>
               <div className="flex gap-6 text-sm text-gray-500">
                 <Link className="hover:text-white transition-colors" href="#"> Privacy Policy </Link>
                 <Link className="hover:text-white transition-colors" href="#"> Terms of Service </Link>

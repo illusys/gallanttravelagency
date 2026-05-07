@@ -1,8 +1,8 @@
 import '@/styles/globals.css';
 
 export const metadata = {
-  title: 'travel_agency_2-travel-wanderlust',
-  description: 'travel_agency_2-travel-wanderlust',
+  title: 'Gallant Travel Agency',
+  description: 'Gallant Travel Agency creates colorful, curated travel packages with expert planning and personal service.',
 };
 
 export default function RootLayout({ children }) {
