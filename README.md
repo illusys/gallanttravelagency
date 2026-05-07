@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # travel_agency_2-travel-wanderlust
 
 ## Router Type
@@ -36,3 +37,7 @@ src/
 - `npm run build` - Build for production
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
+=======
+# gallanttravelagency
+A travel agency based in Lagos, Nigeria
+>>>>>>> 718354cca514c6a29e269e0e901f90650d66f79f
