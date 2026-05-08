@@ -1,4 +1,5 @@
-import { Button } from '@/components/Button';
+'use client';
+
 import { Facebook } from 'lucide-react';
 import { Image } from '@/components/Image';
 import { Instagram } from 'lucide-react';
@@ -8,18 +9,45 @@ import { MapPin } from 'lucide-react';
 import { Menu } from 'lucide-react';
 import { Phone } from 'lucide-react';
 import { Text } from '@/components/Text';
-import { Twitter } from 'lucide-react';
 import { X } from 'lucide-react';
-
-export const metadata = {
-  title: 'Contact Us | Gallant Travel Agency',
-  description: 'Get in touch with Gallant Travel Agency. Book flights, hotels, visa assistance, and more. Visit us at Alaba International Market, Lagos or reach us by phone, email, or social media.',
-};
+import { useEffect } from 'react';
 
 export default function Page() {
+  useEffect(() => {
+    const mobileMenu    = document.getElementById('mobileMenu');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const closeMenuBtn  = document.getElementById('closeMenuBtn');
+
+    function openMenu() {
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    mobileMenuBtn?.addEventListener('click', openMenu);
+    closeMenuBtn?.addEventListener('click', closeMenu);
+
+    // Close menu when any nav link inside it is tapped
+    mobileMenu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    return () => {
+      mobileMenuBtn?.removeEventListener('click', openMenu);
+      closeMenuBtn?.removeEventListener('click', closeMenu);
+    };
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen">
       <>
+        {/* Navigation */}
         <header>
           <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -35,19 +63,31 @@ export default function Page() {
                   <Link className="text-base font-medium text-primary transition-colors" href="contact.html"> Contact </Link>
                   <Link className="bg-cta hover:bg-orange-700 text-white px-6 py-2 rounded-full font-bold transition-all shadow-lg hover:shadow-orange-500/30" href="contact.html"> Plan a Trip </Link>
                 </div>
-                <Button variant="primary" className="md:hidden text-text hover:text-primary" id="mobileMenuBtn">
+                {/* Native <button> — fires click reliably on all mobile browsers */}
+                <button
+                  id="mobileMenuBtn"
+                  className="md:hidden text-text hover:text-primary p-2 rounded-md focus:outline-none"
+                  aria-label="Open navigation menu"
+                >
                   <Menu className="w-8 h-8" />
-                </Button>
+                </button>
               </div>
             </div>
           </nav>
         </header>
 
-        {/* Mobile Menu Overlay */}
-        <div id="mobileMenu" className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl hidden flex-col items-center justify-center gap-8 transition-all duration-300">
-          <Button variant="primary" className="absolute top-6 right-6 text-text hover:text-primary" id="closeMenuBtn">
+        {/* Mobile Menu Overlay — z-[60] sits above fixed nav (z-50) */}
+        <div
+          id="mobileMenu"
+          className="fixed inset-0 z-[60] bg-background/95 backdrop-blur-xl hidden flex-col items-center justify-center gap-8 transition-all duration-300"
+        >
+          <button
+            id="closeMenuBtn"
+            className="absolute top-6 right-6 text-text hover:text-primary p-2 rounded-md focus:outline-none"
+            aria-label="Close navigation menu"
+          >
             <X className="w-8 h-8" />
-          </Button>
+          </button>
           <Link className="text-4xl font-heading text-text hover:text-primary" href="index.html"> Home </Link>
           <Link className="text-4xl font-heading text-text hover:text-primary" href="about.html"> About </Link>
           <Link className="text-4xl font-heading text-text hover:text-primary" href="destinations.html"> Destinations </Link>
@@ -181,7 +221,6 @@ export default function Page() {
                       className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-cta hover:text-white text-primary transition-colors"
                       aria-label="TikTok"
                     >
-                      {/* TikTok icon — not in lucide-react, using an inline SVG */}
                       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z" />
                       </svg>
@@ -243,7 +282,7 @@ export default function Page() {
                       id="service"
                       className="w-full border border-border rounded-lg px-4 py-3 text-text focus:outline-none focus:ring-2 focus:ring-primary/40 transition bg-white"
                     >
-                      <option value="" disabled selected> Select a service </option>
+                      <option value="" disabled defaultValue> Select a service </option>
                       <option value="flight"> Flight Booking </option>
                       <option value="hotel"> Hotel Reservation </option>
                       <option value="visa"> Visa Assistance </option>
