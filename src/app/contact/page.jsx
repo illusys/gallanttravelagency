@@ -10,9 +10,66 @@ import { Menu } from 'lucide-react';
 import { Phone } from 'lucide-react';
 import { Text } from '@/components/Text';
 import { X } from 'lucide-react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
+
+const initialFormData = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  travelInterest: '',
+  message: '',
+  company: '',
+};
 
 export default function Page() {
+
+  const [formData, setFormData] = useState(initialFormData);
+  const [errors, setErrors] = useState({});
+  const [status, setStatus] = useState({ type: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setFormData((current) => ({ ...current, [name]: value }));
+    setErrors((current) => ({ ...current, [name]: undefined }));
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    if (isSubmitting) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    setStatus({ type: '', message: '' });
+    setErrors({});
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const result = await response.json();
+
+      if (!response.ok) {
+        setErrors(result.errors || {});
+        setStatus({ type: 'error', message: result.message || 'Please check the form and try again.' });
+        return;
+      }
+
+      setFormData(initialFormData);
+      setStatus({ type: 'success', message: result.message || 'Thank you. Your message has been sent successfully.' });
+    } catch {
+      setStatus({ type: 'error', message: 'Network error. Please try again or contact us directly.' });
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
   useEffect(() => {
     const mobileMenu    = document.getElementById('mobileMenu');
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -234,25 +291,39 @@ export default function Page() {
                 <h3 className="text-3xl font-heading text-primary mb-2"> Send Us a Message </h3>
                 <p className="text-muted mb-8"> Fill in the form and we'll get back to you within 24 hours. </p>
 
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={handleSubmit} noValidate>
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-bold text-text mb-2" htmlFor="firstName"> First Name </label>
                       <input
                         id="firstName"
+                         name="firstName"
                         type="text"
                         placeholder="e.g. Amaka"
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        required
+                        aria-invalid={Boolean(errors.firstName)}
+                        aria-describedby={errors.firstName ? 'firstName-error' : undefined}
                         className="w-full border border-border rounded-lg px-4 py-3 text-text placeholder-muted focus:outline-none focus:ring-2 focus:ring-primary/40 transition"
                       />
+                      {errors.firstName ? <p id="firstName-error" className="mt-2 text-sm text-red-600">{errors.firstName}</p> : null}
                     </div>
                     <div>
                       <label className="block text-sm font-bold text-text mb-2" htmlFor="lastName"> Last Name </label>
                       <input
                         id="lastName"
+                        name="lastName"
                         type="text"
                         placeholder="e.g. Okonkwo"
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        required
+                        aria-invalid={Boolean(errors.lastName)}
+                        aria-describedby={errors.lastName ? 'lastName-error' : undefined}
                         className="w-full border border-border rounded-lg px-4 py-3 text-text placeholder-muted focus:outline-none focus:ring-2 focus:ring-primary/40 transition"
                       />
+                      {errors.lastName ? <p id="lastName-error" className="mt-2 text-sm text-red-600">{errors.lastName}</p> : null}
                     </div>
                   </div>
 
@@ -260,29 +331,50 @@ export default function Page() {
                     <label className="block text-sm font-bold text-text mb-2" htmlFor="email"> Email Address </label>
                     <input
                       id="email"
+                      name="email"
                       type="email"
                       placeholder="you@example.com"
                       className="w-full border border-border rounded-lg px-4 py-3 text-text placeholder-muted focus:outline-none focus:ring-2 focus:ring-primary/40 transition"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      aria-invalid={Boolean(errors.email)}
+                      aria-describedby={errors.email ? 'email-error' : undefined}
                     />
+                    {errors.email ? <p id="email-error" className="mt-2 text-sm text-red-600">{errors.email}</p> : null}
                   </div>
 
                   <div>
                     <label className="block text-sm font-bold text-text mb-2" htmlFor="phone"> Phone Number </label>
                     <input
                       id="phone"
+                      name="phone"
                       type="tel"
                       placeholder="+234 800 000 0000"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      aria-invalid={Boolean(errors.phone)}
+                      aria-describedby={errors.phone ? 'phone-error' : undefined}
                       className="w-full border border-border rounded-lg px-4 py-3 text-text placeholder-muted focus:outline-none focus:ring-2 focus:ring-primary/40 transition"
                     />
+                    {errors.phone ? <p id="phone-error" className="mt-2 text-sm text-red-600">{errors.phone}</p> : null}
                   </div>
 
                   <div>
+                  <label className="block text-sm font-bold text-text mb-2" htmlFor="travelInterest"> Travel Interest </label>
                     <label className="block text-sm font-bold text-text mb-2" htmlFor="service"> Service Needed </label>
                     <select
-                      id="service"
+                     id="travelInterest"
+                     name="travelInterest"
+                     value={formData.travelInterest}
+                     onChange={handleChange}
+                     required
+                     aria-invalid={Boolean(errors.travelInterest)}
+                     aria-describedby={errors.travelInterest ? 'travelInterest-error' : undefined}
                       className="w-full border border-border rounded-lg px-4 py-3 text-text focus:outline-none focus:ring-2 focus:ring-primary/40 transition bg-white"
                     >
-                      <option value="" disabled defaultValue> Select a service </option>
+                      <option value="" disabled> Select a travel interest </option>
                       <option value="flight"> Flight Booking </option>
                       <option value="hotel"> Hotel Reservation </option>
                       <option value="visa"> Visa Assistance </option>
@@ -291,23 +383,55 @@ export default function Page() {
                       <option value="package"> Full Service Package </option>
                       <option value="other"> Other </option>
                     </select>
+                    {errors.travelInterest ? <p id="travelInterest-error" className="mt-2 text-sm text-red-600">{errors.travelInterest}</p> : null}
+                  </div>
+
+                  <div className="hidden" aria-hidden="true">
+                    <label htmlFor="company"> Company </label>
+                    <input
+                      id="company"
+                      name="company"
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={formData.company}
+                      onChange={handleChange}
+                    />
                   </div>
 
                   <div>
                     <label className="block text-sm font-bold text-text mb-2" htmlFor="message"> Your Message </label>
                     <textarea
                       id="message"
+                      name="message"
                       rows={5}
                       placeholder="Tell us about your trip — destination, travel dates, number of travellers..."
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      aria-invalid={Boolean(errors.message)}
+                      aria-describedby={errors.message ? 'message-error' : undefined}
                       className="w-full border border-border rounded-lg px-4 py-3 text-text placeholder-muted focus:outline-none focus:ring-2 focus:ring-primary/40 transition resize-none"
                     />
+                       {errors.message ? <p id="message-error" className="mt-2 text-sm text-red-600">{errors.message}</p> : null}
                   </div>
+                  {status.message ? (
+                    <div
+                      className={`rounded-lg px-4 py-3 text-sm font-semibold ${status.type === 'success' ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-red-50 text-red-700 border border-red-200'}`}
+                      role="status"
+                    >
+                      {status.message}
+                    </div>
+                  ) : null}
+
 
                   <button
                     type="submit"
-                    className="w-full bg-cta hover:bg-orange-700 text-white font-bold py-4 rounded-full transition-all shadow-lg hover:shadow-orange-500/30 text-lg"
+                    disabled={isSubmitting}
+                    className="w-full bg-cta hover:bg-orange-700 disabled:bg-orange-300 disabled:cursor-not-allowed text-white font-bold py-4 rounded-full transition-all shadow-lg hover:shadow-orange-500/30 text-lg"
+                    
                   >
-                    Send Message
+                           {isSubmitting ? 'Sending...' : 'Send Message'}0.
                   </button>
                 </form>
               </div>
